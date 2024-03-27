@@ -1,12 +1,12 @@
 const express = require('express')
 const app = express()
-const PORT = process.env.PORT || 3000
+require('dotenv').config()
 
 app.get('/',(req,res)=>{
     res.send('Server Deployed Successfully')
 })
 
-app.listen(PORT ,()=>{
+app.listen(process.env.PORT ,()=>{
     console.log('success')
 })
 
