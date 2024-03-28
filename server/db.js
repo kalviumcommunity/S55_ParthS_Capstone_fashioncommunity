@@ -5,12 +5,13 @@ require('dotenv').config();
 let isConnected = false;
 
 const startDb = async () => {
-    if (!process.env.Mongo_URI) {
-        throw new Error("Mongo_URI environment variable is not defined.");
-    }
-
     try {
-        await mongoose.connect(process.env.Mongo_URI);
+        let mongoURI = process.env.Mongo_URI || '';
+        if (!mongoURI) {
+            throw new Error("Mongo_URI environment variable is not defined.");
+        }
+
+        await mongoose.connect(mongoURI);
         console.log('db connected');
         isConnected = true;
     } catch (err) {
