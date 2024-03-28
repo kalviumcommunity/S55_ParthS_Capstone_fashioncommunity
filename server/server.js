@@ -1,13 +1,25 @@
-const express = require('express')
-const app = express()
-require('dotenv').config()
+const express = require('express');
+const app = express();
+const { startDb, getConnectionStatus } = require('./db.js'); 
 
-app.get('/',(req,res)=>{
-    res.send('Server Deployed Successfully')
-})
+const printStatus = async () => {
+    await startDb(); 
+    console.log("MongoDB Connection Status -> ", await getConnectionStatus());
+}
 
-app.listen(process.env.PORT ,()=>{
-    console.log('success')
-})
+printStatus();
 
-module.exports = app
+
+app.get('/', (req, res) => {
+    res.send('Server Deployed Successfully');
+});
+
+
+const route = require('./route.js');
+app.use('/', route);
+
+app.listen(process.env.PORT, () => {
+    console.log('Server running on port', process.env.PORT);
+});
+
+module.exports = app;
