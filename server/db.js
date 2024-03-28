@@ -7,6 +7,7 @@ let isConnected = false;
 const startDb = async () => {
     try {
         let mongoURI = process.env.Mongo_URI || '';
+        console.log("Mongo URI:", mongoURI); // Add this line for debugging
         if (!mongoURI) {
             throw new Error("Mongo_URI environment variable is not defined.");
         }
@@ -20,6 +21,7 @@ const startDb = async () => {
         throw err; 
     }
 };
+
 
 const getConnectionStatus = async () => {
     return isConnected ? 'Connection established' : 'Failed to establish connection with db';
