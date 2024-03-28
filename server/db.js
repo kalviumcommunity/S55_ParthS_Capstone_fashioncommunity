@@ -2,23 +2,26 @@ const express = require('express');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-let connectionStatus = new Promise((resolve, reject) => {
-    resolve('connecting to db...');
-});
+let isConnected = false;
 
 const startDb = async () => {
+    if (!process.env.Mongo_URI) {
+        throw new Error("Mongo_URI environment variable is not defined.");
+    }
+
     try {
         await mongoose.connect(process.env.Mongo_URI);
         console.log('db connected');
-        connectionStatus = 'Connection established';
+        isConnected = true;
     } catch (err) {
         console.log('connection failed', err);
-        connectionStatus = 'Failed to establish connection with db';
+        isConnected = false;
+        throw err; 
     }
 };
 
 const getConnectionStatus = async () => {
-    return JSON.stringify(await connectionStatus);
+    return isConnected ? 'Connection established' : 'Failed to establish connection with db';
 };
 
 module.exports = { startDb, getConnectionStatus };
