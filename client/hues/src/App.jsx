@@ -1,20 +1,25 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import Hues from './assets/logos/Hues.png'
+import Home from './components/Home'
 import './App.css'
+import { BrowserRouter,Routes, Route } from "react-router-dom";
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
       <div>
+
+      <BrowserRouter>
+        
+        <Routes>
+            <Route path="/" element={<Home />} />
+            </Routes>
+          </BrowserRouter>
       
-          <img src={Hues} className="logo" alt="Vite logo" />
         
       
       </div>
-      <h1>Hues</h1>
+   
       
     </>
   )
