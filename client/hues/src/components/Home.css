@@ -1,0 +1,96 @@
+body{
+    background-color: #B8C1EC;
+}
+
+nav{
+    background-color: #232946;
+    height: 20vh;
+}
+
+.search{
+    height:5vh;
+    width:27vw;
+    border-radius: 35px;
+    border: 1.8px solid white;
+    background-color: transparent;
+    position: absolute;
+    left: 20vw;
+    top: 8.8vh; 
+    color: white;
+
+}
+
+.search::placeholder{
+        
+        align-items: center;
+        text-align: center;
+        font-size: 1.1em;    
+        color: rgb(221, 221, 219);
+        
+}
+
+    .explore-btn{
+        background-color: transparent;
+        color: white;
+        position: absolute;
+        left: 116vh;
+        top: 9vh;
+        font-size: 1em;
+        border: none;
+    }
+
+    .desi-btn{
+        background-color: transparent;
+        color: white;
+        position: absolute;
+        left: 134vh;
+        top: 9vh;
+        font-size: 1em;
+        border: none;
+    }
+
+    .create-btn{
+        background-color: transparent;
+        color: white;
+        position: absolute;
+        left: 153vh;
+        top: 9vh;
+        font-size: 1em;
+        border: none;
+
+    }
+
+
+    .explore-btn,
+.desi-btn,
+.create-btn {
+    background-color: transparent;
+    color: white;
+    position: absolute;
+    font-size: 1em;
+    border: none;
+    transition: color 0.3s, border-bottom-color 0.3s;
+    cursor: pointer;
+}
+
+.explore-btn:hover,
+.desi-btn:hover,
+.create-btn:hover {
+    color: #00FFFF; /* Change to desired color on hover */
+    border-bottom: 2px solid #00FFFF; /* Change to desired underline color and thickness */
+}
+
+
+
+.home-img{
+    height: 90vh;
+    position: absolute;
+    left: 63vw;
+
+}
+
+
+.title-text{
+    font-size: 2em;
+
+}
