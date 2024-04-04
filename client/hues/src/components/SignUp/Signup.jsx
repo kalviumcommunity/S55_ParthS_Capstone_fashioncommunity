@@ -8,7 +8,7 @@ import signup from './signup.jpg'
 
 function Signup() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  const navigate = useNavigate();
+  const [signupError, setSignupError] = useState('');
 
   const onSubmit = async (data) => {
     const { username, password } = data;
