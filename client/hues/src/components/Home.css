@@ -10,7 +10,7 @@ nav {
 }
 
 .search {
-  height: 5vh;
+  height: 2vh;
   width: 27vw;
   border-radius: 35px;
   border: 1.8px solid white;
@@ -24,7 +24,7 @@ nav {
 .search::placeholder {
   align-items: center;
   text-align: center;
-  font-size: 1.1em;
+  font-size: 0.9em;
   color: rgb(221, 221, 219);
 }
 
@@ -77,6 +77,50 @@ nav {
   border-bottom: 2px solid #00ffff;
 }
 
+.signup{
+  position: absolute;
+  right: 8vw;
+  top: 9vh;
+  background-color: transparent;
+  color: white;
+  position: absolute;
+  border: none;
+  transition: color 0.3s, border-bottom-color 0.3s;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+.login{
+  position: absolute;
+  right: 4vw;
+  top: 9vh;
+  background-color: transparent;
+  color: white;
+  border: none;
+  transition: color 0.3s, border-bottom-color 0.3s;
+  cursor: pointer;
+  font-size: 1em;
+
+}
+
+.signup:hover,
+.login:hover {
+  color: #00ffff;
+  border-bottom: 2px solid #00ffff;
+}
+
+.slash{
+  position: absolute;
+  right: 7vw;
+  top: 7.6vh;
+  color: white;
+  font-size: 1.3em;
+
+}
+
+
+
+
 .home-img {
   height: 90vh;
   position: absolute;
@@ -116,6 +160,41 @@ nav {
   font-size: 1em;
   color: azure;
   background-color: #240e3b;
+}
+
+.specification{
+  position: absolute;
+  top: 70vh;
+  left: 13vw;
+  display: flex;
+  flex-direction: row;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-style: normal;
+  color: #fff3f3;
+  font-size: 1.3em;
+}
+
+.specification h1 {
+  margin: 0;
+  padding: 0 20px; 
+}
+
+.specs{
+  position: absolute;
+  top: 77vh;
+  left: 13vw;
+  display: flex;
+  flex-direction: row;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-style: normal;
+  color: #fff3f3;
+  font-size: 1em;
+
+}
+
+.specs h3 {
+  margin: 0;
+  padding: 0 23px; 
 }
 
 .grid-img {
@@ -175,4 +254,37 @@ nav {
 
   font-style: normal;
   font-size: 1.3em;
+}
+
+
+.about-title{
+  position: absolute;
+  top: 190vh;
+  left: 43vw;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+  color: #111838;
+  font-size: 2.5em;
+}
+
+hr{
+  position: absolute;
+  top: 280vh;
+  left: 2vw;
+  width: 94vw;
+  height: 0.5vh;
+  background-color: azure;
+  border: none;
+  border-radius: 20px;
+
+}
+
+
+.footer-img{
+  height: 20vh;
+  position: absolute;
+  top: 290vh;
+  left: 8vw;
+  
 }

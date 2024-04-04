@@ -1,0 +1,92 @@
+.image {
+  height: 100vh;
+  width: 35vw;
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  /* background-color: aqua; */
+  height: 36vh;
+}
+
+.form-container {
+  background-color: rgb(141, 141, 220);
+  height: 45vh;
+  width: 30vw;
+  font-family: "Alegreya Sans SC", sans-serif;
+  font-weight: 550;
+  font-style: normal;
+  position: absolute;
+  left: 50vw;
+  top: 16vh;
+  margin-top: 12vh;
+  padding-block: 60px;
+  padding-inline: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.text {
+  position: relative;
+  margin-top: -30px;
+  margin-bottom: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+label {
+  width: 100%;
+  margin-top: 10px;
+  color: rgb(63, 63, 63);
+  font-weight: bold;
+}
+
+input,
+.button {
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: rgb(228, 228, 228);
+  color: rgb(63, 63, 63);
+}
+
+.button {
+  font-family: "DM Serif Display", serif;
+  margin-top: 1rem;
+  background-color: #231c5a;
+  color: white;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #280545;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0px;
+  animation: 1s ease 0s normal none pulsate;
+  opacity: 1;
+}
+
+.error {
+  color: red;
+  margin-top: -1px;
+}
+
+.option {
+  text-align: center;
+  margin-top: 2vw;
+  font-size: larger;
+}
+
+.option2 {
+  margin-left: 0.3vw;
+}
