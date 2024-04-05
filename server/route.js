@@ -9,7 +9,7 @@ app.get("/data", async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error("Error retrieving data from the database:", error);
-    res.status(500).send("Internal Server Error");
+    res.status(500).json({ error: "Failed to fetch data" });
   }
 });
 

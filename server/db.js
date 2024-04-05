@@ -27,7 +27,8 @@ const getDataFromDatabase = async () => {
     const data = await DataModel.find();
     return data;
   } catch (error) {
-    throw error;
+    console.log("Error retrieving data", error.message);
+    throw new Error("Failed to retrieve data");
   }
 };
 
