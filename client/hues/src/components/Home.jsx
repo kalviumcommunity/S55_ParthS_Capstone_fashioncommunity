@@ -25,15 +25,15 @@ function Home() {
         />
 
         <div>
-          <button className="explore-btn"> Explore</button>
+          <Link to="/explore"><button className="explore-btn"> Explore</button></Link>
         </div>
 
         <div>
-          <button className="desi-btn">Designers</button>
+        <Link to="/designers"><button className="desi-btn">Designers</button></Link>
         </div>
 
         <div>
-          <button className="create-btn"> Create</button>
+        <Link to="/create"><button className="create-btn"> Create</button></Link>
         </div>
 
         <div>
@@ -52,8 +52,8 @@ function Home() {
         <h2 className="title-text">Welcome To Fashion Community</h2>
         <img src={Img} className="home-img" alt="Hues logo" />
 
-        <button className="explore">Explore</button>
-        <button className="create">Create</button>
+        <Link to="/explore"><button className="explore">Explore</button></Link>
+        <Link to="/create"><button className="create">Create</button></Link>
 
         <div className="specification">
           <h1>20 +</h1>
