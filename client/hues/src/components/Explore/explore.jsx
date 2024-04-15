@@ -1,7 +1,5 @@
-// App.js
-
-import React, { useState, useEffect } from 'react';
-import './explore.css';
+import React, { useState, useEffect } from "react";
+import "./explore.css";
 
 const Post = ({ username, imageUrl }) => {
   const [likes, setLikes] = useState(0);
@@ -17,7 +15,9 @@ const Post = ({ username, imageUrl }) => {
         <button onClick={handleLike} className="like-button">
           <i className="far fa-heart"></i> Like
         </button>
-        <span className="likes">{likes} {likes === 1 ? 'like' : 'likes'}</span>
+        <span className="likes">
+          {likes} {likes === 1 ? "like" : "likes"}
+        </span>
         <p className="username">Posted by {username}</p>
       </div>
     </div>
@@ -41,19 +41,23 @@ function App() {
     setPosts((prevPosts) => [...prevPosts, ...newPosts]);
   };
 
-  const handleScroll = () => {
-    const scrollTop = document.documentElement.scrollTop;
-    const scrollHeight = document.documentElement.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight;
-
-    if (scrollTop + clientHeight >= scrollHeight - 5 && posts.length) {
-      setPage((prevPage) => prevPage + 1);
-    }
-  };
+  useEffect(() => {
+    fetchPosts();
+  }, [page]);
 
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const handleScroll = () => {
+      const scrollTop = document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight;
+      const clientHeight = document.documentElement.clientHeight;
+
+      if (scrollTop + clientHeight >= scrollHeight - 5 && posts.length) {
+        setPage((prevPage) => prevPage + 1);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [posts]);
 
   return (
