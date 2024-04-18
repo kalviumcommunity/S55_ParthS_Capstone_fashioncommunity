@@ -4,6 +4,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './Signup.css'
 import signup from './signup.jpg'
+import { useState, useEffect } from "react";
 
 
 function Signup() {
