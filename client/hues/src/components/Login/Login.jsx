@@ -12,7 +12,7 @@ function Login() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-  const [loginMessage, setLoginMessage] = useState({ text: "", type: "" });
+
 
   const onSubmit = async (data) => {
     const { username, password } = data;
@@ -53,7 +53,7 @@ function Login() {
           {errors.password && (
             <p className="error">{errors.password.message}</p>
           )}
-          {loginMessage && <div className="error-message">{loginMessage}</div>}
+          
 
           <button type="submit" className="button">
             LOGIN

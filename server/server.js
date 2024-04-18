@@ -2,6 +2,9 @@ const express = require('express');
 const app = express();
 const { startDb, getConnectionStatus } = require('./db.js'); 
 
+var cors = require('cors')
+app.use(cors())
+
 const printStatus = async () => {
     await startDb(); 
     console.log("MongoDB Connection Status -> ", await getConnectionStatus());

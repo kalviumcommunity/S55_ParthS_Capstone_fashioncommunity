@@ -32,18 +32,15 @@ function App() {
     fetchPosts();
   }, [page]);
 
-  const fetchPosts = () => {
-    const newPosts = Array.from({ length: 9 }, (_, index) => ({
-      id: index,
-      username: `User ${index + 1}`,
-      imageUrl: `https://via.placeholder.com/150?text=Post${index + 1}`,
-    }));
-    setPosts((prevPosts) => [...prevPosts, ...newPosts]);
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("https://s55-parths-capstone-fashioncommunity.onrender.com/data");
+      const data = await response.json();
+      setPosts((prevPosts) => [...prevPosts, ...data]);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   };
-
-  useEffect(() => {
-    fetchPosts();
-  }, [page]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,8 +59,8 @@ function App() {
 
   return (
     <div className="app">
-      {posts.map((post) => (
-        <Post key={post.id} username={post.username} imageUrl={post.imageUrl} />
+      {posts.map((post, index) => (
+        <Post key={index} username={post.designer} imageUrl={post.imageurl} />
       ))}
     </div>
   );
