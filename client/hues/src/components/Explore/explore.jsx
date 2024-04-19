@@ -39,14 +39,14 @@ function App() {
     }
   };
 
-  const handleLike = async (postId) => {
+  const handleLike = async (postId, currentLikes) => {
     try {
-      const response = await fetch(`https://s55-parths-capstone-fashioncommunity.onrender.com/data/${postId}`, {
+      const response = await fetch(`https://s55-parths-capstone-fashioncommunity.onrender.com/data/${postId}/like`, {
         method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ likes: 1 }),
+        body: JSON.stringify({ likes: currentLikes + 1 }), // Increment likes by 1
       });
       if (!response.ok) {
         throw new Error("Failed to update like count");
