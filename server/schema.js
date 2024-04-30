@@ -7,7 +7,8 @@ imageurl : String,
 name : String,
 type : String,
 designer : String,
-Collection : String
+Collection : String,
+likes : Number
 
 })
 
