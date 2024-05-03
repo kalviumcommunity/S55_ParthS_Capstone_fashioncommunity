@@ -18,6 +18,7 @@ app.get("/data", async (req, res) => {
 });
 
 app.post('/signup', async (req, res) => {
+  console.log(req.body)
   try {
     const user = {
       username: req.body.username,
