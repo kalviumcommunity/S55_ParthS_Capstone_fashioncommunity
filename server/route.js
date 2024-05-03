@@ -13,7 +13,7 @@ app.get("/data", async (req, res) => {
     res.json(data);
   } catch (error) {
     console.error("Error retrieving data from the database:", error);
-    res.status(500).json({ error: "Failed to fetch data" });
+    res.status(500).json({ error: "Failed to fetch data check errors" });
   }
 });
 
@@ -27,7 +27,7 @@ app.post('/signup', async (req, res) => {
     res.status(200).send(response);
   } catch (err) {
     console.error("Error in signing up user", err);
-    res.status(500).send("Failed to signup user");
+    res.status(500).send("Failed to signup user check DB");
 
   }
 });
