@@ -9,6 +9,8 @@ import uni3 from "../assets/img3.jpg";
 import dress from "../assets/dress.png";
 import imgg from '../assets/logos/logo.png'
 import { Link, useNavigate } from "react-router-dom";
+import React, { useContext } from 'react';
+
 
 function Home() {
 
@@ -109,6 +111,7 @@ function Home() {
         
         <hr />
         <img src={imgg} className="footer-img" alt="Hues logo" />
+        
 
         <div></div>
 

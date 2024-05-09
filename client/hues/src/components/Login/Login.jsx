@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
@@ -12,20 +12,26 @@ function Login() {
     formState: { errors },
   } = useForm();
   const navigate = useNavigate();
-
+  const [loginError, setLoginError] = useState('');
 
   const onSubmit = async (data) => {
     const { username, password } = data;
     try {
       if (password.length < 6) {
-        setLoginMessage("Password should be more than 5 characters");
-        setMessageType("error");
+        setLoginError("Password should be more than 5 characters");
         return;
       }
+      const response = await axios.post(`https://s55-parths-capstone-fashioncommunity.onrender.com/login`, { username, password });
+      if (response.status === 200) {
+        console.log('Login successful');
+        navigate("/");
+      } else {
+        console.error('Login failed');
+        setLoginError('Login failed');
+      }
     } catch (err) {
-      console.error(err);
-      setLoginMessage("Incorrect Credentials");
-      setMessageType("error");
+      console.error('An error occurred during the login:', err);
+      setLoginError('An error occurred during the login');
     }
   };
 
@@ -53,7 +59,6 @@ function Login() {
           {errors.password && (
             <p className="error">{errors.password.message}</p>
           )}
-          
 
           <button type="submit" className="button">
             LOGIN
