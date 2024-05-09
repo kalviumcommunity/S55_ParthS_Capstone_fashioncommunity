@@ -128,12 +128,11 @@ nav {
 }
 
 .title-text {
-  font-size: 2.5em;
+  font-size: 2.3em;
   position: absolute;
   top: 50vh;
   left: 9vw;
   font-family: "Alegreya Sans SC", sans-serif;
-  font-weight: 500;
   font-style: normal;
   color: #111838;
 }

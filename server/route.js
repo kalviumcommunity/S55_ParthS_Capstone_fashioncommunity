@@ -24,7 +24,8 @@ app.post('/signup', async (req, res) => {
       username: req.body.username,
       password: req.body.password
     };
-    const response = await userModel.create({user});
+    const response = new userModel(user)
+    await response.save()
     res.status(200).send(response);
   } catch (err) {
     console.error("Error in signing up user", err);

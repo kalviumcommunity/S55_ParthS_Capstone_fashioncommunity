@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./explore.css";
+import { Link, useNavigate } from "react-router-dom";
+import Logo from "../../assets/logos/Hues_transparent.png";
 
 const Post = ({ id, name, imageUrl, type, designer, Collection, likes, handleLike }) => {
   return (
@@ -46,10 +48,10 @@ function App() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ likes: currentLikes + 1 }), // Increment likes by 1
+        body: JSON.stringify({ likes: currentLikes + 1 }), 
       });
       if (!response.ok) {
-        throw new Error("Failed to update like count");
+        throw new Error("Failed to update like count due to server error");
       }
       const updatedPost = await response.json();
       setPosts((prevPosts) =>
@@ -63,6 +65,30 @@ function App() {
   };
 
   return (
+<div>
+    <nav>
+    <Link to = "/"><img src={Logo} className="logo" alt="Hues logo" /></Link>
+
+        <input
+          type="text"
+          className="search"
+          placeholder="Search For the Outfits"
+        />
+
+        <div>
+          <Link to="/explore"><button className="explore-btn"> Explore</button></Link>
+        </div>
+
+        <div>
+        <Link to="/designers"><button className="desi-btn">Designers</button></Link>
+        </div>
+
+        <div>
+        <Link to="/create"><button className="create-btn"> Create</button></Link>
+        </div>
+
+      </nav>
+
     <div className="app">
       {posts.map((post, index) => (
         <Post
@@ -77,6 +103,7 @@ function App() {
           handleLike={handleLike}
         />
       ))}
+    </div>
     </div>
   );
 }
