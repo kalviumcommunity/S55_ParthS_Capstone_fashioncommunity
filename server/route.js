@@ -24,7 +24,6 @@ app.post('/signup', async (req, res) => {
       username: req.body.username,
       password: req.body.password
     };
-    console.log(user)
     const response = new userModel(user)
     await response.save()
     res.status(200).send(response);

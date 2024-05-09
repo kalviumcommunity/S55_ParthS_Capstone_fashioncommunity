@@ -51,7 +51,7 @@ function App() {
         body: JSON.stringify({ likes: currentLikes + 1 }), 
       });
       if (!response.ok) {
-        throw new Error("Failed to update like count");
+        throw new Error("Failed to update like count due to server error");
       }
       const updatedPost = await response.json();
       setPosts((prevPosts) =>
