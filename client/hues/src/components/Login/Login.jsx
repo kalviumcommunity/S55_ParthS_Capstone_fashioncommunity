@@ -29,6 +29,7 @@ function Login() {
             { username, password }
           );
           console.log(authResponse.data);
+          document.cookie = `ACCESS_TOKEN=${authResponse.data}`;
         } catch (authError) {
           console.error(authError);
           alert('Authentication Error!');
