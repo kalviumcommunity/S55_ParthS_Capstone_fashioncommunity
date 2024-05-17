@@ -3,6 +3,8 @@ const app = express.Router();
 const { getDataFromDatabase } = require("./db.js");
 const { userModel } = require("./AccessSchema.js");
 const { router } = require("./server.js");
+const jwt = require('jsonwebtoken');
+const key = process.env.ACCESS_TOKEN
 
 app.use(express.json())
 
@@ -48,5 +50,24 @@ app.post('/login', async (req, res) => {
     res.status(500).send("Failed to login");
   }
 });
+
+
+app.post('/auth', async (req, res) => {
+  try {
+    const { username, password } = req.body;
+    const user = { username };
+    const token = jwt.sign(user, key);
+    res.cookie('token', token, { maxAge: 365 * 24 * 60 * 60 * 1000 });
+    res.status(200).json({ token }); 
+  } catch (err) {
+    console.error("Authentication error:", err);
+    res.status(500).json({ error: 'Authentication Error' });
+  }
+});
+
+if (!key) {
+  console.error("JWT key is missing. Please set the ACCESS_TOKEN environment variable.");
+  process.exit(1); 
+}
 
 module.exports = app;

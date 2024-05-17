@@ -23,7 +23,21 @@ function Login() {
       }
       const response = await axios.post(`https://s55-parths-capstone-fashioncommunity.onrender.com/login`, { username, password });
       if (response.status === 200) {
-        console.log('Login successful');
+        try {
+          const authResponse = await axios.post(
+            `https://s55-parths-capstone-fashioncommunity.onrender.com/auth`, 
+            { username, password }
+          );
+          console.log(authResponse.data);
+          document.cookie = `ACCESS_TOKEN=${authResponse.data}`;
+        } catch (authError) {
+          console.error(authError);
+          alert('Authentication Error!');
+        }
+        
+        console.log(username);
+        sessionStorage.setItem('login', true);
+        sessionStorage.setItem('username', username);
         navigate("/");
       } else {
         console.error('Login failed');
@@ -34,6 +48,7 @@ function Login() {
       setLoginError('An error occurred during the login');
     }
   };
+
 
   return (
     <div className="page">
