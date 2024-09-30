@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./explore.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Logo from "../../assets/logos/Hues_transparent.png";
 
 const Post = ({ id, name, imageUrl, type, designer, Collection, likes, handleLike }) => {
@@ -26,23 +26,37 @@ const Post = ({ id, name, imageUrl, type, designer, Collection, likes, handleLik
 function App() {
   const [posts, setPosts] = useState([]);
   const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchPosts();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    if (page > 1) {
+      fetchPosts();
+    }
   }, [page]);
 
   const fetchPosts = async () => {
+    setLoading(true);
     try {
-      const response = await fetch("https://s55-parths-capstone-fashioncommunity.onrender.com/data");
+      const response = await fetch(`https://s55-parths-capstone-fashioncommunity.onrender.com/data?page=${page}`);
       const data = await response.json();
       setPosts((prevPosts) => [...prevPosts, ...data]);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+    setLoading(false);
   };
 
-  const handleLike = async (postId, currentLikes) => {
+  const handleLike = async (postId) => {
     try {
+      const postIndex = posts.findIndex((post) => post.id === postId);
+      const currentLikes = posts[postIndex].likes;
+
       const response = await fetch(`https://s55-parths-capstone-fashioncommunity.onrender.com/data/${postId}/like`, {
         method: "PATCH",
         headers: {
@@ -50,9 +64,11 @@ function App() {
         },
         body: JSON.stringify({ likes: currentLikes + 1 }), 
       });
+
       if (!response.ok) {
         throw new Error("Failed to update like count due to server error");
       }
+
       const updatedPost = await response.json();
       setPosts((prevPosts) =>
         prevPosts.map((post) =>
@@ -64,46 +80,44 @@ function App() {
     }
   };
 
+  const handleScroll = () => {
+    if (window.innerHeight + window.scrollY >= document.documentElement.scrollHeight && !loading) {
+      setPage((prevPage) => prevPage + 1);
+    }
+  };
+
   return (
-<div>
-    <nav>
-    <Link to = "/"><img src={Logo} className="logo" alt="Hues logo" /></Link>
-
-        <input
-          type="text"
-          className="search"
-          placeholder="Search For the Outfits"
-        />
-
+    <div>
+      <nav>
+        <Link to="/"><img src={Logo} className="logo" alt="Hues logo" /></Link>
+        <input type="text" className="search" placeholder="Search For the Outfits" />
         <div>
           <Link to="/explore"><button className="explore-btn"> Explore</button></Link>
         </div>
-
         <div>
-        <Link to="/designers"><button className="desi-btn">Designers</button></Link>
+          <Link to="/designers"><button className="desi-btn">Designers</button></Link>
         </div>
-
         <div>
-        <Link to="/create"><button className="create-btn"> Create</button></Link>
+          <Link to="/create"><button className="create-btn"> Create</button></Link>
         </div>
-
       </nav>
 
-    <div className="app">
-      {posts.map((post, index) => (
-        <Post
-          key={index}
-          id={post.id}
-          name={post.name}
-          imageUrl={post.imageurl}
-          type={post.type}
-          designer={post.designer}
-          Collection={post.Collection}
-          likes={post.likes}
-          handleLike={handleLike}
-        />
-      ))}
-    </div>
+      <div className="app">
+        {posts.map((post, index) => (
+          <Post
+            key={index}
+            id={post.id}
+            name={post.name}
+            imageUrl={post.imageurl}
+            type={post.type}
+            designer={post.designer}
+            Collection={post.Collection}
+            likes={post.likes}
+            handleLike={handleLike}
+          />
+        ))}
+        {loading && <p>Loading...</p>}
+      </div>
     </div>
   );
 }

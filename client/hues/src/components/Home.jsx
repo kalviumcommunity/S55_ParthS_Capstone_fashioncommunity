@@ -107,22 +107,43 @@ function Home() {
       </div>
 
       <footer>
+  {/* <div class="footer-container">
+    <div class="footer-logo">
+      <img src={imgg} className="footer-img" alt="Hues logo" />
+    </div>
+    <div class="footer-column">
+      <h3>About</h3>
+      <ul>
+        <li><a href="#">Product</a></li>
+        <li><a href="#">Resource</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Company</h3>
+      <ul>
+        <li><a href="#">Our Team</a></li>
+        <li><a href="#">Partner With Us</a></li>
+        <li><a href="#">Privacy & Policy</a></li>
+        <li><a href="#">Features</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h3>Contact</h3>
+      <ul>
+        <li>+012 3456789</li>
+        <li><a href="mailto:parth.shah@kalvium.community">parth.shah@kalvium.community</a></li>
+        <li class="social-icons">
+          <a href="#"><img src="path-to-youtube-icon" alt="YouTube" /></a>
+          <a href="#"><img src="path-to-facebook-icon" alt="Facebook" /></a>
+          <a href="#"><img src="path-to-instagram-icon" alt="Instagram" /></a>
+        </li>
+      </ul>
+    </div>
+  </div> */}
+</footer>
 
-        
-        <hr />
-        <img src={imgg} className="footer-img" alt="Hues logo" />
-        
-
-        <div></div>
-
-        
-
-
-
-        
-
-        
-      </footer>
 
 
     </>

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Alegreya+Sans+SC:ital,wght@0,400;0,500;1,400;1,500&family=Bungee&family=Comfortaa:wght@300..700&family=DM+Sans:opsz,wght@9..40,200;9..40,400&family=Irish+Grover&family=Jost&family=Kavivanar&family=Kreon&family=Merriweather&family=Montserrat:wght@300&family=Mukta:wght@500&family=NTR&family=Nunito:wght@500;900&family=Playfair+Display:wght@400;500&family=Poppins:ital,wght@0,400;1,200&family=Roboto:wght@300&display=swap");
 
-
+/* 
 .desi-btn {
     background-color: transparent;
     color: white;
@@ -21,18 +21,14 @@
     font-family: "Alegreya Sans SC", sans-serif;
 }
 
-.design-pic{
+ .design-pic{
     position: absolute;
     left: 56vw;
     top: 30vh;
-}
+} 
 
-
-  
-
-  
   /* Card styles */
-  .card-container {
+  /* .card-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,12 +38,13 @@
   .card {
     z-index: 2;
     display: flex;
-    width: 20%;
-    height: 180px;
+    width: 25%;
+    height: 230px;
     /* margin: 20px; */
-    border: 2px solid #ffffff;
+    /* border: 2px solid #ffffff;
     border-radius: 5px;
     overflow: hidden;
+    background-color: #e9eef5;
   }
 
   
@@ -74,4 +71,146 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-  }
+  } */ 
+
+  /* Card container styles */
+/* .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual card styles */
+/* .card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #e9eef5;
+  text-align: center;
+  
+}
+
+
+.card-details {
+  padding: 10px;
+}
+
+.card-details h4 {
+  margin: 10px 0;
+}
+
+.circle-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  margin-top: -25px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-color: #cdd8e4;
+}
+
+.circle-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+} */ 
+
+
+/* Add your imported fonts and other styles here */
+
+/* Ensure to import fonts and other styles here */
+
+.desi-btn {
+  background-color: transparent;
+  color: white;
+  position: absolute;
+  left: 134vh;
+  top: 9vh;
+  font-size: 1em;
+  border: none;
+  text-decoration: none;
+}
+
+.text-box {
+  font-size: 1em;
+  position: absolute;
+  top: 50vh;
+  left: 10vw;
+  font-family: "Alegreya Sans SC", sans-serif;
+}
+
+/* Card container styles */
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Individual card styles */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 370px;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: #e9eef5;
+  text-align: center;
+  margin: 20px;
+  position: relative;
+  top: 400px;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-details {
+  padding: 10px;
+}
+
+ .design-pic{
+    /* position: absolute; */
+    left: 56vw;
+    top: 30vh;
+} 
+
+.card-details h4 {
+  margin: 10px 0;
+}
+
+.circle-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  margin-top: -35px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-color: #cdd8e4;
+  position: absolute;
+  top: 150px; /* Adjust this value as needed */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.circle-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
