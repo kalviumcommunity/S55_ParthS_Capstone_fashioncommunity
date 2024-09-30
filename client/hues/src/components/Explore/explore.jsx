@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import "./explore.css";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/logos/Hues_transparent.png";
+import debounce from "lodash.debounce"; // Import debounce
 
 const Post = ({ id, name, imageUrl, type, designer, Collection, likes, handleLike }) => {
   return (
@@ -30,8 +31,9 @@ function App() {
 
   useEffect(() => {
     fetchPosts();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const debouncedHandleScroll = debounce(handleScroll, 200); 
+    window.addEventListener("scroll", debouncedHandleScroll);
+    return () => window.removeEventListener("scroll", debouncedHandleScroll);
   }, []);
 
   useEffect(() => {
