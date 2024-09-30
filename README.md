@@ -22,6 +22,6 @@
 -  **Connect and Customise**: Hues bridges the gap between designers and fashion enthusiasts by providing a platform for direct communication. Users can interact with designers for their customizations and needs on the designs and buy their products. Top Portfolios will be voted by users based on their artworks and portfolios for more engagement.
 
 
-Visit  [Hues Design](https://hues-fashion.vercel.app/) Now (Deployed Linl)
+Visit  [Hues Design](https://hues-fashion.vercel.app/) Now (Deployed Link)
   
 
